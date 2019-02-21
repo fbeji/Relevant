@@ -5,10 +5,11 @@ We live in a world where information and articles are in abundance, we also enco
 
 ## Tables of Data Needed
 
-### The data needed for my Android App is a list of the  most emailed, shared and viewed articles on the internet. I will need to divide 
-my data sheet into columns of different categories based on user intrest. 
-columns:     Sports         Politics          Entertainment          Economy        Stocks         General  
+### The data needed for my Android App is a list of the  most emailed, shared and viewed articles on the internet. 
 
-those columns are divided into sections (rows) based on subcategories. for example Sports can be Basketball, Soccer, Football etc.
+    I will need to divide my data sheet into columns of different categories based on user intrest. 
+    columns:     Sports         Politics          Entertainment          Economy        Stocks         General  
+
+    those columns are divided into sections (rows) based on subcategories. for example Sports can be Basketball, Soccer, Football etc.
 
 
