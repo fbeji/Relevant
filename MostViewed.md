@@ -11,5 +11,9 @@ We live in a world where information and articles are in abundance, we also enco
     columns:     Sports         Politics          Entertainment          Economy        Stocks         General  
 
     those columns are divided into sections (rows) based on subcategories. for example Sports can be Basketball, Soccer, Football etc.
+    
+    ## Wire Frame
+    ![Relevant Wire Frame](https://user-images.githubusercontent.com/46073655/53264362-9db00c00-3698-11e9-9cc7-619729c31786.png)
+
 
 
