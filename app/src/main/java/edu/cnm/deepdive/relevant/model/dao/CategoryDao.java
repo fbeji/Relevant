@@ -14,13 +14,13 @@ import java.util.List;
 public interface CategoryDao {
 
   @Query("SELECT * FROM Category WHERE category_id = :categoryId")
-  Search findFirstByCategoryId(long cateogoryId);
+  Category findFirstByCategoryId(long categoryId);
 
   @Insert
   List<Long> insert(Category... Categories);
 
   @Delete
-  List<Long> Update(Category... Categories);
+  int Delete(Category... Categories);
 
 
 

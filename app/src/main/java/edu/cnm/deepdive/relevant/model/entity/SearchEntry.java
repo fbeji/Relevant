@@ -20,7 +20,7 @@ public class SearchEntry {
   @PrimaryKey(autoGenerate = true)
   private long id;
 
-  @ColumnInfo(name = "search_id")
+  @ColumnInfo(name = "search_id", index = true)
   private long searchId;
 
   @ColumnInfo(index = true)

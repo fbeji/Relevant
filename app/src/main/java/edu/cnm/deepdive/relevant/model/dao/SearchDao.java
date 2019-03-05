@@ -25,7 +25,7 @@ public interface SearchDao {
 
 
   @Delete
-  List<Long> delete(Search... searches);
+  int delete(Search... searches);
 
 
 

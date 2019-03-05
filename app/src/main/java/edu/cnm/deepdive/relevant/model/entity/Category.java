@@ -11,15 +11,23 @@ public class Category {
 
   @ColumnInfo(name = "category_id")
   @PrimaryKey(autoGenerate = true)
-  private long categoryId;
+  private long id;
 @ColumnInfo(index = true)
 private String name ;
 
-public long getCategoryidId() {
-    return categoryId;
+  public long getId() {
+    return id;
   }
 
-  public void setCategoryId(long categoryid) {
-    this. categoryId = categoryid;
+  public void setId(long id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 }

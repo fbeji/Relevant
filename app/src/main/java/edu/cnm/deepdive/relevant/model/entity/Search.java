@@ -9,33 +9,36 @@ import java.util.Date;
 
 
 @Entity(
-    foreignKeys = @ForeignKey(
-        entity = Category.class,
-        parentColumns = "category_id", childColumns = "category_id",
-        onDelete = ForeignKey.CASCADE
-    ))
 
-//@Entity(
-//
-//    foreignKeys = @ForeignKey(
-//        entity = User.class,
-//        parentColumns = "user_id", childColumns = "user_id",
-//        onDelete = ForeignKey.CASCADE
-//    ))
+    foreignKeys = {
+        @ForeignKey(
+            entity = User.class,
+            parentColumns = "user_id", childColumns = "user_id",
+            onDelete = ForeignKey.CASCADE
+        ),
+        @ForeignKey(
+            entity = Category.class,
+            parentColumns = "category_id", childColumns = "category_id",
+            onDelete = ForeignKey.CASCADE
+        )
+    }
+)
 public class Search {
+  @ColumnInfo(name = "category_id", index = true)
+  private long categoryId;
 
   @ColumnInfo(name = "search_id")
   @PrimaryKey(autoGenerate = true)
-    private long id;
+  private long id;
 
-    @ColumnInfo(index = true)
-    private Date date;
+  @ColumnInfo(index = true)
+  private Date date;
 
-    @ColumnInfo(name = "user_id", index = true)
-    private long userId;
+  @ColumnInfo(name = "user_id", index = true)
+  private long userId;
 
-    @ColumnInfo(name = "url", index = true)
-    private long url;
+  @ColumnInfo(name = "url", index = true)
+  private long url;
 
   public long getId() {
     return id;
@@ -67,6 +70,14 @@ public class Search {
 
   public void setUrl(long url) {
     this.url = url;
+  }
+
+  public long getCategoryId() {
+    return categoryId;
+  }
+
+  public void setCategoryId(long categoryId) {
+    this.categoryId = categoryId;
   }
 }
 

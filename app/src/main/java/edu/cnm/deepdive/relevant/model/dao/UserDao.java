@@ -14,14 +14,18 @@ public interface UserDao {
 
 
 
-  @Query("SELECT * FROM User WHERE search_id = :userId")
-  Search findFirstByUserId(long searchId);
+  @Query("SELECT * FROM User WHERE user_id = :userId")
+  User findFirstByUserId(long userId);
+
+
+
+
 
   @Insert
   List<Long> insert(User... Users);
 
   @Update
-  List<Long> Update(Search... searches);
+  int update(Search... searches);
 
 
 }
