@@ -3,36 +3,41 @@
   xmlns:tools="http://schemas.android.com/tools"
   tools:showIn="navigation_view">
 
-  <group android:checkableBehavior="single">
-    <item
-      android:id="@+id/nav_camera"
-      android:icon="@drawable/ic_menu_camera"
-      android:title="Import"/>
-    <item
-      android:id="@+id/nav_gallery"
-      android:icon="@drawable/ic_menu_gallery"
-      android:title="Gallery"/>
-    <item
-      android:id="@+id/nav_slideshow"
-      android:icon="@drawable/ic_menu_slideshow"
-      android:title="Slideshow"/>
-    <item
-      android:id="@+id/nav_manage"
-      android:icon="@drawable/ic_menu_manage"
-      android:title="Tools"/>
-  </group>
 
-  <item android:title="Communicate">
+  <group android:checkableBehavior="single">
+  <item
+    android:id="@+id/fragment_1"
+    android:icon="@drawable/ic_search"
+    android:title="Search by Keyword"/>
+  <item
+    android:id="@+id/fragment_2"
+    android:icon="@drawable/ic_menu_streetview"
+    android:title="Most Viewed"/>
+
+  <item
+    android:id="@+id/fragment_3"
+    android:icon="@drawable/ic_menu_share"
+    android:title="Most Shared">
+
     <menu>
-      <item
-        android:id="@+id/nav_share"
-        android:icon="@drawable/ic_menu_share"
-        android:title="Share"/>
-      <item
-        android:id="@+id/nav_send"
-        android:icon="@drawable/ic_menu_send"
-        android:title="Send"/>
+      <group android:checkableBehavior="single">
+        <item
+          android:id="@+id/fragment_4"
+          android:icon="@drawable/ic_email"
+          android:title="By Email"/>
+        <item
+          android:id="@+id/fragment_5"
+          android:icon="@drawable/ic_search"
+          android:title="On Facebook"/>
+        <item
+          android:id="@+id/fragment_6"
+          android:icon="@drawable/ic_search"
+          android:title="On Twitter"/>
+
+      </group>
     </menu>
   </item>
+  </group>
 
 </menu>
+

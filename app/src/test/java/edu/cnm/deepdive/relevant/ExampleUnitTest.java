@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.smallbuisiness;
+package edu.cnm.deepdive.relevant;
 
 import org.junit.Test;
 
