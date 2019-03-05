@@ -17,7 +17,7 @@ public class User {
 
 
   @ColumnInfo(index = true)
-  private String lastname ;
+  private String lastName ;
 
   @ColumnInfo(index = true)
   private String email ;
@@ -38,12 +38,12 @@ public class User {
     this.name = name;
   }
 
-  public String getLastname() {
-    return lastname;
+  public String getLastName() {
+    return lastName;
   }
 
-  public void setLastname(String lastname) {
-    this.lastname = lastname;
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
   }
 
   public String getEmail() {
@@ -53,4 +53,5 @@ public class User {
   public void setEmail(String email) {
     this.email = email;
   }
+
 }
