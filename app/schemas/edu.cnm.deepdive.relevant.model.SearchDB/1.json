@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "b317542f2df1e35e9861424caa7a36d6",
+    "identityHash": "c999880fdea646ebbacc82f661b3c4ad",
     "entities": [
       {
         "tableName": "User",
@@ -83,7 +83,7 @@
       },
       {
         "tableName": "Search",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`category_id` INTEGER NOT NULL, `search_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` INTEGER, `user_id` INTEGER NOT NULL, `url` TEXT, `title` TEXT, FOREIGN KEY(`user_id`) REFERENCES `User`(`user_id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`category_id`) REFERENCES `Category`(`category_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`category_id` INTEGER NOT NULL, `search_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` INTEGER, `user_id` INTEGER NOT NULL, `url` TEXT, `title` TEXT)",
         "fields": [
           {
             "fieldPath": "categoryId",
@@ -162,30 +162,7 @@
             "createSql": "CREATE  INDEX `index_Search_url` ON `${TABLE_NAME}` (`url`)"
           }
         ],
-        "foreignKeys": [
-          {
-            "table": "User",
-            "onDelete": "CASCADE",
-            "onUpdate": "NO ACTION",
-            "columns": [
-              "user_id"
-            ],
-            "referencedColumns": [
-              "user_id"
-            ]
-          },
-          {
-            "table": "Category",
-            "onDelete": "CASCADE",
-            "onUpdate": "NO ACTION",
-            "columns": [
-              "category_id"
-            ],
-            "referencedColumns": [
-              "category_id"
-            ]
-          }
-        ]
+        "foreignKeys": []
       },
       {
         "tableName": "Category",
@@ -314,7 +291,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"b317542f2df1e35e9861424caa7a36d6\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"c999880fdea646ebbacc82f661b3c4ad\")"
     ]
   }
 }

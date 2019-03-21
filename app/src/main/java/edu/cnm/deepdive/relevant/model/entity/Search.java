@@ -3,7 +3,6 @@ package edu.cnm.deepdive.relevant.model.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 import com.google.gson.annotations.Expose;
 import java.io.Serializable;
@@ -12,7 +11,7 @@ import java.util.Date;
 
 @Entity(
 
-    foreignKeys = {
+    /*foreignKeys = {
         @ForeignKey(
             entity = User.class,
             parentColumns = "user_id", childColumns = "user_id",
@@ -23,7 +22,7 @@ import java.util.Date;
             parentColumns = "category_id", childColumns = "category_id",
             onDelete = ForeignKey.CASCADE
         )
-    }
+    }*/
 )
 public class Search implements Serializable {
   @ColumnInfo(name = "category_id", index = true)

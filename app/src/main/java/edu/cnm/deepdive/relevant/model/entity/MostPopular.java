@@ -73,7 +73,7 @@ public class MostPopular extends ViewHolder {
 //    private Abstract abstract;
 
     @Expose
-    @SerializedName("pub_date")
+    @SerializedName("published_date")
     private Date publicationDate;
 
     public String getWebUrl() {

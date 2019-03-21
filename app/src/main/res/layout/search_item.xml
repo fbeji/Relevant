@@ -1,62 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:card_view="http://schemas.android.com/apk/res-auto"
+  style="@style/HistoryCard"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
-  android:orientation="vertical">
+  android:clickable="true"
+  android:focusable="true"
+  android:theme="@style/HistoryCardTextTheme"
+  card_view:cardCornerRadius="4dp">
 
-  <View
-    style="@style/ColumnSeparator"
-    android:layout_width="@dimen/column_separator_width"
-    android:layout_height="match_parent"
-    android:layout_marginTop="7dp"/>
-
-  <Button
-    android:id="@+id/button2"
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text=" "/>
-  <View
-    style="@style/ColumnSeparator"
-    android:layout_width="@dimen/column_separator_width"
-    android:layout_height="match_parent"/>
+    android:layout_margin="10dp"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical">
 
-  <TextView
-    android:id="@+id/headline"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textColor="#000000"/>
+    <!--<View-->
+    <!--style="@style/ColumnSeparator"-->
+    <!--android:layout_width="@dimen/column_separator_width"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginTop="2dp"/>-->
 
-  <TextView
-    android:id="@+id/snippet"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:textColor="#000000"
-    />
-  <TextView
-    android:id="@+id/weburl"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textColor="#000000"/>
+    <!--<Button-->
+    <!--android:id="@+id/button2"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text=" "/>-->
+    <!--<View-->
+    <!--style="@style/ColumnSeparator"-->
+    <!--android:layout_width="@dimen/column_separator_width"-->
+    <!--android:layout_height="match_parent"/>-->
 
-  <TextView
-    android:id="@+id/leadparagraph"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textColor="#000000"/>
+    <TextView
+      android:id="@+id/headline"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textColor="#000000"/>
 
-  <TextView
-    android:id="@+id/title1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textColor="#000000"/>
+    <TextView
+      android:id="@+id/snippet"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:textColor="#000000"
+      />
+    <TextView
+      android:id="@+id/weburl"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textColor="#000000"/>
 
-  <TextView
-    android:id="@+id/weburl1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textColor="#000000"/>
+    <TextView
+      android:id="@+id/leadparagraph"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textColor="#000000"/>
+
+    <TextView
+      android:id="@+id/title1"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textColor="#000000"/>
+
+    <TextView
+      android:id="@+id/weburl1"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textColor="#000000"/>
 
 
-</LinearLayout>
-
+  </LinearLayout>
+</android.support.v7.widget.CardView>

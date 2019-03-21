@@ -11,6 +11,8 @@ import android.widget.EditText;
 import edu.cnm.deepdive.relevant.R;
 import edu.cnm.deepdive.relevant.model.entity.MostPopular;
 import edu.cnm.deepdive.relevant.model.entity.MostPopular.Result;
+import edu.cnm.deepdive.relevant.model.entity.Search;
+import edu.cnm.deepdive.relevant.service.SearchDBService.InsertSearchTask;
 import edu.cnm.deepdive.relevant.service.SearchWebService.MostEmailedTask;
 import edu.cnm.deepdive.relevant.view.MostPopularAdapter;
 import java.util.ArrayList;
@@ -32,6 +34,15 @@ public class EmailedFragment extends Fragment implements OnClickListener {
     recyclerView = view.findViewById(R.id.keyword_view);
     new MostEmailedTask().setSuccessListener(mostPopular -> {
       Result[] results = mostPopular.getResults();
+      for (Result result : results) {
+        Search search = new Search();
+        search.setTitle(result.getTitle());
+        search.setUrl(result.getWebUrl());
+        search.setDate(result.getPublicationDate());
+        new InsertSearchTask().execute(search);
+
+      }
+
       mostPopularAdapter = new MostPopularAdapter(EmailedFragment.this,
           Arrays.asList(results));
       recyclerView.setAdapter(mostPopularAdapter);
