@@ -33,6 +33,10 @@
           android:id="@+id/fragment_6"
           android:icon="@drawable/ic_search"
           android:title="On Twitter"/>
+        <item
+          android:id="@+id/fragment_history"
+          android:icon="@drawable/ic_history"
+          android:title="History"/>
 
       </group>
     </menu>

@@ -2,11 +2,10 @@ package edu.cnm.deepdive.relevant.controller;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,16 +13,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 import edu.cnm.deepdive.relevant.R;
-import edu.cnm.deepdive.relevant.controller.Fragment1;
-import edu.cnm.deepdive.relevant.controller.Fragment2;
-import edu.cnm.deepdive.relevant.controller.Fragment3;
-import edu.cnm.deepdive.relevant.controller.Fragment4;
-import edu.cnm.deepdive.relevant.controller.Fragment5;
-import edu.cnm.deepdive.relevant.controller.Fragment6;
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
+
+  private ProgressBar loading;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +96,8 @@ public class MainActivity extends AppCompatActivity
 
     }else if (id == R.id.fragment_6) {
 
+    } else if (id == R.id.fragment_history) {
+
     }
 
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -113,32 +112,30 @@ public class MainActivity extends AppCompatActivity
 
     switch(item.getItemId()){
       case R.id.fragment_1:
-        loadFragment(new Fragment1(), R.id.fragment_container,"fragment1",null);
+        loadFragment(new KeywordFragment(), R.id.fragment_container, "fragment1", null);
 
         break;
       case R.id.fragment_2:
-        loadFragment(new Fragment2(), R.id.fragment_container,"fragment2",null);
+        loadFragment(new MostViewedFragment(), R.id.fragment_container, "fragment2", null);
         break;
-      case R.id.fragment_3:
-
-        //args.putString(Fragment2.BODY_TEXT_KEY,"Here comes another one.");
-        loadFragment(new Fragment3(), R.id.fragment_container,"fragment3",null);
-        break;
-
       case R.id.fragment_4:
 
-       // args.putString(Fragment2.BODY_TEXT_KEY,"Here comes another one.");
-        loadFragment(new Fragment4(), R.id.fragment_container,"fragment4",null);
+        loadFragment(new EmailedFragment(), R.id.fragment_container, "fragment3", null);
         break;
 
       case R.id.fragment_5:
-        // args.putString(Fragment2.BODY_TEXT_KEY,"Here comes another one.");
-        loadFragment(new Fragment5(), R.id.fragment_container,"fragment5",null);
+
+        loadFragment(new FacebookFragment(), R.id.fragment_container, "fragment4", null);
         break;
+
       case R.id.fragment_6:
 
-        //args.putString(Fragment2.BODY_TEXT_KEY,"Here comes another one.");
-        loadFragment(new Fragment6(), R.id.fragment_container,"fragment6",null);
+        loadFragment(new TwitterFragment(), R.id.fragment_container, "fragment5", null);
+        break;
+
+      case R.id.fragment_history:
+
+        loadFragment(new HistoryFragment(), R.id.fragment_container, "historyfragment", null);
         break;
     }
 
@@ -157,6 +154,11 @@ public class MainActivity extends AppCompatActivity
     }
     manger.beginTransaction().replace(container,fragment,tag).commit();
 
+  }
+
+
+  public ProgressBar getLoading() {
+    return loading;
   }
 
 }

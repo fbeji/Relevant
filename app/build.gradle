@@ -1,5 +1,11 @@
 apply plugin: 'com.android.application'
 
+def getServiceProperty(String property) {
+    Properties properties = new Properties();
+    properties.load(new FileInputStream("../../services/nyt.properties"));
+    return String.format("\"%s\"", properties.getProperty(property));
+}
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -9,22 +15,25 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-
+        buildConfigField "String", "API_KEY", getServiceProperty("api_key")
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
             }
         }
     }
-    
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -34,6 +43,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    //implementation 'edu.cnm.deepdive:deepdive-utils:1.0.0'
     implementation 'com.facebook.stetho:stetho:1.5.0'
     implementation 'android.arch.persistence.room:runtime:1.1.1'
     annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'

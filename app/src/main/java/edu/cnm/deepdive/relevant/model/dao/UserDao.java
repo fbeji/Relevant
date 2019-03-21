@@ -2,7 +2,6 @@ package edu.cnm.deepdive.relevant.model.dao;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
-
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 import edu.cnm.deepdive.relevant.model.entity.Search;
@@ -24,6 +23,8 @@ public interface UserDao {
   @Insert
   List<Long> insert(User... Users);
 
+  @Insert
+  List<Long> insert(List<User> users);
   @Update
   int update(Search... searches);
 

@@ -11,6 +11,16 @@ public class User {
   @PrimaryKey(autoGenerate = true)
   private long id;
 
+  @ColumnInfo(name = "Search_id", index = true)
+  private long searchId;
+
+  public long getSearchId() {
+    return searchId;
+  }
+
+  public void setSearchId(long searchId) {
+    this.searchId = searchId;
+  }
 
   @ColumnInfo(index = true)
   private String name ;

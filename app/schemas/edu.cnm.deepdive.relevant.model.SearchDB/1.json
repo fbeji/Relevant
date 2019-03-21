@@ -2,15 +2,21 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "db439763a59292334160611a8ed9fdeb",
+    "identityHash": "b317542f2df1e35e9861424caa7a36d6",
     "entities": [
       {
         "tableName": "User",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`user_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `lastName` TEXT, `email` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`user_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Search_id` INTEGER NOT NULL, `name` TEXT, `lastName` TEXT, `email` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
             "columnName": "user_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "searchId",
+            "columnName": "Search_id",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -41,6 +47,14 @@
         },
         "indices": [
           {
+            "name": "index_User_Search_id",
+            "unique": false,
+            "columnNames": [
+              "Search_id"
+            ],
+            "createSql": "CREATE  INDEX `index_User_Search_id` ON `${TABLE_NAME}` (`Search_id`)"
+          },
+          {
             "name": "index_User_name",
             "unique": false,
             "columnNames": [
@@ -69,7 +83,7 @@
       },
       {
         "tableName": "Search",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`category_id` INTEGER NOT NULL, `search_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` INTEGER, `user_id` INTEGER NOT NULL, `url` INTEGER NOT NULL, FOREIGN KEY(`user_id`) REFERENCES `User`(`user_id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`category_id`) REFERENCES `Category`(`category_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`category_id` INTEGER NOT NULL, `search_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` INTEGER, `user_id` INTEGER NOT NULL, `url` TEXT, `title` TEXT, FOREIGN KEY(`user_id`) REFERENCES `User`(`user_id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`category_id`) REFERENCES `Category`(`category_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "categoryId",
@@ -98,8 +112,14 @@
           {
             "fieldPath": "url",
             "columnName": "url",
-            "affinity": "INTEGER",
-            "notNull": true
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -294,7 +314,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"db439763a59292334160611a8ed9fdeb\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"b317542f2df1e35e9861424caa7a36d6\")"
     ]
   }
 }

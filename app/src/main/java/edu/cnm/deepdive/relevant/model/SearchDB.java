@@ -26,7 +26,7 @@ import java.util.Date;
 @TypeConverters(Converters.class)
 public abstract class SearchDB extends RoomDatabase {
 
-  private static final String DB_NAME = "serach_db";
+  private static final String DB_NAME = "search_db";
 
 
 

@@ -5,6 +5,7 @@ import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import edu.cnm.deepdive.relevant.model.entity.Search;
+import java.util.Date;
 import java.util.List;
 
 @Dao
@@ -27,7 +28,11 @@ public interface SearchDao {
   @Delete
   int delete(Search... searches);
 
+  @Query("SELECT * FROM Search ORDER BY date DESC")
+  List<Search> findAll();
 
+  @Query("SELECT * FROM Search WHERE date = :date")
+  Search findFirstByDate(Date date);
 
 //  @Query("SELECT User FROM Search")
 //  public List<User> loadUser();

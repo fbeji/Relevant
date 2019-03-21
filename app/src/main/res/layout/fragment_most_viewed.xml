@@ -3,8 +3,8 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="#C00000"
-  tools:context=".controller.Fragment3">
+  android:background="#00FF00"
+  tools:context=".controller.MostViewedFragment">
 
   <!-- TODO: Update blank fragment layout -->
   <TextView
@@ -14,6 +14,5 @@
     android:textColor="#C00000"
     android:textSize="72sp"
     android:textStyle="italic"/>
-
 
 </FrameLayout>

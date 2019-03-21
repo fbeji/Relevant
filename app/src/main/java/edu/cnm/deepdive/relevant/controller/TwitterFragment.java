@@ -4,11 +4,12 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import edu.cnm.deepdive.relevant.R;
 
 
-public class Fragment1 extends Fragment {
+public class TwitterFragment extends Fragment implements OnClickListener {
 
 
 
@@ -18,8 +19,11 @@ public class Fragment1 extends Fragment {
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
 
-    return inflater.inflate(R.layout.fragment_fragment1, container, false);
+    return inflater.inflate(R.layout.fragment_twitterfragment, container, false);
   }
 
-}
+  @Override
+  public void onClick(View v) {
 
+  }
+}

@@ -5,6 +5,8 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
+import com.google.gson.annotations.Expose;
+import java.io.Serializable;
 import java.util.Date;
 
 
@@ -23,7 +25,7 @@ import java.util.Date;
         )
     }
 )
-public class Search {
+public class Search implements Serializable {
   @ColumnInfo(name = "category_id", index = true)
   private long categoryId;
 
@@ -38,7 +40,10 @@ public class Search {
   private long userId;
 
   @ColumnInfo(name = "url", index = true)
-  private long url;
+  private String url;
+
+  @Expose
+  private String title;
 
   public long getId() {
     return id;
@@ -64,11 +69,11 @@ public class Search {
     this.userId = userId;
   }
 
-  public long getUrl() {
+  public String getUrl() {
     return url;
   }
 
-  public void setUrl(long url) {
+  public void setUrl(String url) {
     this.url = url;
   }
 
@@ -78,6 +83,14 @@ public class Search {
 
   public void setCategoryId(long categoryId) {
     this.categoryId = categoryId;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
   }
 }
 
