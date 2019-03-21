@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
     // Context of the app under test.
     Context appContext = InstrumentationRegistry.getTargetContext();
 
-    assertEquals("edu.cnm.deepdive.smallbuisiness", appContext.getPackageName());
+    assertEquals("edu.cnm.deepdive.relevant", appContext.getPackageName());
   }
 }
