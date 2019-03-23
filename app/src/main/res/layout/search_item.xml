@@ -2,6 +2,7 @@
 
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:card_view="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
   style="@style/HistoryCard"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
@@ -37,7 +38,9 @@
       android:id="@+id/headline"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:textColor="#000000"/>
+      android:textColor="#000000"
+      android:textSize="30sp"
+      tools:text="The Headline"/>
 
     <TextView
       android:id="@+id/snippet"
@@ -45,27 +48,9 @@
       android:layout_height="wrap_content"
       android:layout_weight="1"
       android:textColor="#000000"
-      />
+      tools:text="A Snippet about the Article"/>
     <TextView
       android:id="@+id/weburl"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:textColor="#000000"/>
-
-    <TextView
-      android:id="@+id/leadparagraph"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:textColor="#000000"/>
-
-    <TextView
-      android:id="@+id/title1"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:textColor="#000000"/>
-
-    <TextView
-      android:id="@+id/weburl1"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:textColor="#000000"/>

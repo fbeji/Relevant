@@ -112,28 +112,35 @@ public class MainActivity extends AppCompatActivity
 
     switch(item.getItemId()){
       case R.id.fragment_1:
+        setTitle("Keyword");
         loadFragment(new KeywordFragment(), R.id.fragment_container, "fragment1", null);
 
         break;
       case R.id.fragment_2:
+        setTitle("Most Viewed");
         loadFragment(new MostViewedFragment(), R.id.fragment_container, "fragment2", null);
         break;
       case R.id.fragment_4:
+        setTitle("Email");
 
         loadFragment(new EmailedFragment(), R.id.fragment_container, "fragment3", null);
         break;
 
       case R.id.fragment_5:
+        setTitle("Facebook");
 
         loadFragment(new FacebookFragment(), R.id.fragment_container, "fragment4", null);
         break;
 
       case R.id.fragment_6:
+        setTitle("Twitter");
 
         loadFragment(new TwitterFragment(), R.id.fragment_container, "fragment5", null);
         break;
 
       case R.id.fragment_history:
+
+        setTitle("History");
 
         loadFragment(new HistoryFragment(), R.id.fragment_container, "historyfragment", null);
         break;

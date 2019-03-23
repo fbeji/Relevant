@@ -10,6 +10,7 @@ import android.widget.TextView;
 import edu.cnm.deepdive.relevant.R;
 import edu.cnm.deepdive.relevant.controller.EmailedFragment;
 import edu.cnm.deepdive.relevant.controller.FacebookFragment;
+import edu.cnm.deepdive.relevant.controller.MostViewedFragment;
 import edu.cnm.deepdive.relevant.controller.TwitterFragment;
 import edu.cnm.deepdive.relevant.model.entity.MostPopular.Result;
 import java.util.List;
@@ -22,6 +23,7 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
   private EmailedFragment emailedFragment;
   private FacebookFragment facebookFragment;
   private TwitterFragment twitterFragment;
+  private MostViewedFragment mostViewedFragment;
   private List<Result> items;
 
 
@@ -43,6 +45,13 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
     this.twitterFragment = twitterFragment;
     this.items = items;
   }
+
+  public MostPopularAdapter(MostViewedFragment mostViewedFragment, List<Result> items) {
+    context = mostViewedFragment.getContext();
+    this.mostViewedFragment = mostViewedFragment;
+    this.items = items;
+  }
+
 
 
   @NonNull
@@ -86,9 +95,10 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
       view.setOnClickListener(emailedFragment);
       view.setOnClickListener(facebookFragment);
       view.setOnClickListener(twitterFragment);
-      title1 = view.findViewById(R.id.title1);
-      leadparagraph = view.findViewById(R.id.leadparagraph);
-      webUrl1 = view.findViewById(R.id.weburl1);
+      view.setOnClickListener(mostViewedFragment);
+      title1 = view.findViewById(R.id.headline);
+      leadparagraph = view.findViewById(R.id.snippet);
+      webUrl1 = view.findViewById(R.id.weburl);
     }
 
 

@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "c999880fdea646ebbacc82f661b3c4ad",
+    "identityHash": "5cad0c8af8351fbcae635e6b8bbe13ff",
     "entities": [
       {
         "tableName": "User",
@@ -130,6 +130,14 @@
         },
         "indices": [
           {
+            "name": "url",
+            "unique": true,
+            "columnNames": [
+              "url"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `url` ON `${TABLE_NAME}` (`url`)"
+          },
+          {
             "name": "index_Search_category_id",
             "unique": false,
             "columnNames": [
@@ -152,14 +160,6 @@
               "user_id"
             ],
             "createSql": "CREATE  INDEX `index_Search_user_id` ON `${TABLE_NAME}` (`user_id`)"
-          },
-          {
-            "name": "index_Search_url",
-            "unique": false,
-            "columnNames": [
-              "url"
-            ],
-            "createSql": "CREATE  INDEX `index_Search_url` ON `${TABLE_NAME}` (`url`)"
           }
         ],
         "foreignKeys": []
@@ -291,7 +291,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"c999880fdea646ebbacc82f661b3c4ad\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"5cad0c8af8351fbcae635e6b8bbe13ff\")"
     ]
   }
 }

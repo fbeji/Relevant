@@ -1,62 +1,78 @@
 package edu.cnm.deepdive.relevant.controller;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.webkit.WebView;
+import android.widget.EditText;
 import edu.cnm.deepdive.relevant.R;
+import edu.cnm.deepdive.relevant.model.entity.MostPopular;
+import edu.cnm.deepdive.relevant.model.entity.MostPopular.Result;
 import edu.cnm.deepdive.relevant.model.entity.Search;
-import edu.cnm.deepdive.relevant.service.SearchWebService;
+import edu.cnm.deepdive.relevant.service.SearchDBService.InsertSearchTask;
+import edu.cnm.deepdive.relevant.service.SearchWebService.MostEmailedTask;
+import edu.cnm.deepdive.relevant.view.MostPopularAdapter;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class MostViewedFragment extends Fragment implements OnClickListener {
 
-
-  private static final String SEARCH_KEY = "search";
-  private WebView webView;
-  private Search search;
-  private HistoryFragment historyFragment;
-  private LayoutInflater inflater;
-  private ViewGroup container;
-  private Bundle savedInstanceState;
+  private MostPopularAdapter mostPopularAdapter;
+  private RecyclerView recyclerView;
+  private ArrayList<MostPopular> arrayList;
+  private EditText mostViewedView;
 
 
-  @Override
+
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
-    this.inflater = inflater;
-    this.container = container;
-    this.savedInstanceState = savedInstanceState;
+    View view = inflater.inflate(R.layout.fragment_most_viewed, container, false);
+    mostViewedView = view.findViewById(R.id.mostviewedview);
+    recyclerView = view.findViewById(R.id.keyword_view);
+    new MostEmailedTask().setSuccessListener(mostPopular -> {
+      Result[] results = mostPopular.getResults();
+      for (Result result : results) {
+        Search search = new Search();
+        search.setTitle(result.getTitle());
+        search.setUrl(result.getWebUrl());
+        search.setDate(result.getPublicationDate());
+        new InsertSearchTask().execute(search);
 
-    return inflater.inflate(R.layout.fragment_most_viewed, container, false);
+      }
+
+      mostPopularAdapter = new MostPopularAdapter(MostViewedFragment.this,
+          Arrays.asList(results));
+      recyclerView.setAdapter(mostPopularAdapter);
+    }).execute(mostViewedView.getText().toString());
+    return view;
   }
-
-
-  @Override
-  public void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setHasOptionsMenu(true);
-    setRetainInstance(true);
-    new SearchWebService.SearchTask()
-        .setSuccessListener((result) -> {
-          Log.d("Success", result.toString());
-
-        })
-        .setFailureListener((result) -> {
-          Log.d("Failure", result.toString());
-        })
-        .execute("pinocchio");
-  }
-
   @Override
   public void onClick(View v) {
 
   }
+}
+
+//  @Override
+//  public void onCreate(@Nullable Bundle savedInstanceState) {
+//    super.onCreate(savedInstanceState);
+//    setHasOptionsMenu(true);
+//    setRetainInstance(true);
+//    new SearchWebService.SearchTask()
+//        .setSuccessListener((result) -> {
+//          Log.d("Success", result.toString());
+//
+//        })
+//        .setFailureListener((result) -> {
+//          Log.d("Failure", result.toString());
+//        })
+//        .execute("pinocchio");
+//  }
+
+
 
 //  @Override
 //  public View onCreateView(
@@ -76,8 +92,6 @@ public class MostViewedFragment extends Fragment implements OnClickListener {
 //
 //
 //
-
-}
 
 //  SendMessage SM;
 //

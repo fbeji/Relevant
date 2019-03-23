@@ -3,6 +3,7 @@ package edu.cnm.deepdive.relevant.model.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import com.google.gson.annotations.Expose;
 import java.io.Serializable;
@@ -10,7 +11,7 @@ import java.util.Date;
 
 
 @Entity(
-
+    indices = {@Index(value = "url", name = "url", unique = true)}
     /*foreignKeys = {
         @ForeignKey(
             entity = User.class,
@@ -38,7 +39,7 @@ public class Search implements Serializable {
   @ColumnInfo(name = "user_id", index = true)
   private long userId;
 
-  @ColumnInfo(name = "url", index = true)
+  @ColumnInfo(name = "url")
   private String url;
 
   @Expose

@@ -53,13 +53,6 @@ public class EmailedFragment extends Fragment implements OnClickListener {
 
   @Override
   public void onClick(View v) {
-//get the text out edit text
-
 
   }
-
-//  @Override
-//  public void onClick(View v) {
-//
-//  }
 }

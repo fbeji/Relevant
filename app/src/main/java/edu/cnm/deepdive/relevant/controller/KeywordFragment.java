@@ -3,7 +3,6 @@ package edu.cnm.deepdive.relevant.controller;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,8 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import edu.cnm.deepdive.relevant.R;
+import edu.cnm.deepdive.relevant.model.entity.Search;
 import edu.cnm.deepdive.relevant.model.entity.SearchResponse;
 import edu.cnm.deepdive.relevant.model.entity.SearchResponse.Document;
+import edu.cnm.deepdive.relevant.service.SearchDBService.InsertSearchTask;
 import edu.cnm.deepdive.relevant.service.SearchWebService.SearchTask;
 import edu.cnm.deepdive.relevant.view.SearchResponseAdapter;
 import java.util.ArrayList;
@@ -55,6 +56,15 @@ public class KeywordFragment extends Fragment implements OnClickListener {
       Document[] documents = searchResponse.getResponse().getDocs();
       searchResponseAdapter = new SearchResponseAdapter(KeywordFragment.this,
           Arrays.asList(documents));
+
+      for (Document document : documents) {
+        Search search = new Search();
+        search.setTitle(document.getHeadline().getMain());
+        search.setUrl(document.getWebUrl());
+        search.setDate(document.getPublicationDate());
+        new InsertSearchTask().execute(search);
+
+      }
       recyclerView.setAdapter(searchResponseAdapter);
     }).execute(keysearchView.getText().toString());
 
@@ -67,28 +77,7 @@ public class KeywordFragment extends Fragment implements OnClickListener {
     return super.onOptionsItemSelected(item);
   }
 
-  private void search(SearchView searchView) {
 
-    searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-      @Override
-      public boolean onQueryTextSubmit(String query) {
-        new SearchTask().setSuccessListener(searchResponse -> {
-          Document[] documents = searchResponse.getResponse().getDocs();
-          searchResponseAdapter = new SearchResponseAdapter(KeywordFragment.this,
-              Arrays.asList(documents));
-          recyclerView.setAdapter(searchResponseAdapter);
-        }).execute();
-        return false;
-      }
-
-      @Override
-      public boolean onQueryTextChange(String newText) {
-
-        //mAdapter.getFilter().filter(newText);
-        return true;
-      }
-    });
-  }
 }
 
 //    String [] values =
