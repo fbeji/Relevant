@@ -13,7 +13,7 @@ import edu.cnm.deepdive.relevant.model.entity.MostPopular;
 import edu.cnm.deepdive.relevant.model.entity.MostPopular.Result;
 import edu.cnm.deepdive.relevant.model.entity.Search;
 import edu.cnm.deepdive.relevant.service.SearchDBService.InsertSearchTask;
-import edu.cnm.deepdive.relevant.service.SearchWebService.MostEmailedTask;
+import edu.cnm.deepdive.relevant.service.SearchWebService.MostSharedTask;
 import edu.cnm.deepdive.relevant.view.MostPopularAdapter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,7 +34,7 @@ public class TwitterFragment extends Fragment implements OnClickListener {
     View view = inflater.inflate(R.layout.fragment_twitterfragment, container, false);
     twitterView = view.findViewById(R.id.twitterview);
     recyclerView = view.findViewById(R.id.keyword_view);
-    new MostEmailedTask().setSuccessListener(mostPopular -> {
+    new MostSharedTask().setSuccessListener(mostPopular -> {
       Result[] results = mostPopular.getResults();
       for (Result result : results) {
         Search search = new Search();
