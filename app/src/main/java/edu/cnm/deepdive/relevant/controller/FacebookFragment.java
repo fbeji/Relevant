@@ -47,7 +47,7 @@ public class FacebookFragment extends Fragment implements OnClickListener {
       mostPopularAdapter = new MostPopularAdapter(FacebookFragment.this,
           Arrays.asList(results));
       recyclerView.setAdapter(mostPopularAdapter);
-    }).execute(facebookView.getText().toString());
+    }).execute("facebook");
     return view;
   }
 

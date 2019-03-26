@@ -26,6 +26,9 @@ public class EmailedFragment extends Fragment implements OnClickListener {
   private ArrayList<MostPopular> arrayList;
   private EditText emailView;
 
+  /**
+   * In the EmailedFragment, most emailed articles will be displayed
+   */
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {

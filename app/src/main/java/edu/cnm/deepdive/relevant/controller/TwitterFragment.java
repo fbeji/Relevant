@@ -48,7 +48,7 @@ public class TwitterFragment extends Fragment implements OnClickListener {
       mostPopularAdapter = new MostPopularAdapter(TwitterFragment.this,
           Arrays.asList(results));
       recyclerView.setAdapter(mostPopularAdapter);
-    }).execute(twitterView.getText().toString());
+    }).execute("twitter");
     return view;
   }
 

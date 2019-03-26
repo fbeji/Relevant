@@ -114,7 +114,6 @@ public interface SearchWebService {
       {
         int period = 1;
 
-        String searchString = strings[0];
         String type = strings[0];
 
         try {
