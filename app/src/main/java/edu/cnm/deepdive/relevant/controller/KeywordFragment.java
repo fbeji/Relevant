@@ -10,6 +10,11 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import edu.cnm.deepdive.relevant.R;
 import edu.cnm.deepdive.relevant.model.entity.Search;
 import edu.cnm.deepdive.relevant.model.entity.SearchResponse;
@@ -17,9 +22,14 @@ import edu.cnm.deepdive.relevant.model.entity.SearchResponse.Document;
 import edu.cnm.deepdive.relevant.service.SearchDBService.InsertSearchTask;
 import edu.cnm.deepdive.relevant.service.SearchWebService.SearchTask;
 import edu.cnm.deepdive.relevant.view.SearchResponseAdapter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
+/**
+ * Instances of this class represents searched articles by keyword typed in by the user
+ * from the New York Times with titles (headline), snippets of the articles  and the corresponding Url
+ *
+ * @author Faycel B. Beji &amp; Deep Dive Coding Java + Android Bootcamp cohort 6
+ * @version 1.0
+ */
 
 
 public class KeywordFragment extends Fragment implements OnClickListener {
@@ -35,40 +45,45 @@ public class KeywordFragment extends Fragment implements OnClickListener {
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
-      Bundle savedInstanceState) {
+                           Bundle savedInstanceState) {
 
-    View view = inflater.inflate(R.layout.fragment_keywordfragment, container, false);
-    recyclerView = view.findViewById(R.id.keyword_view);
-    keysearchButton = view.findViewById(R.id.keysearchbutton);
-    keysearchButton.setOnClickListener(this);
-    searchResponseAdapter = new SearchResponseAdapter(this, keywordSearch);
-    recyclerView.setAdapter(searchResponseAdapter);
-    keysearchView = view.findViewById(R.id.keysearchview);
-
-    return view;
-
-  }
-
-  @Override
-  public void onClick(View v) {
-//get the text out edit text
-    new SearchTask().setSuccessListener(searchResponse -> {
-      Document[] documents = searchResponse.getResponse().getDocs();
-      searchResponseAdapter = new SearchResponseAdapter(KeywordFragment.this,
-          Arrays.asList(documents));
-
-      for (Document document : documents) {
-        Search search = new Search();
-        search.setTitle(document.getHeadline().getMain());
-        search.setUrl(document.getWebUrl());
-        search.setDate(document.getPublicationDate());
-        new InsertSearchTask().execute(search);
-
-      }
+      View view = inflater.inflate(R.layout.fragment_keywordfragment, container, false);
+      recyclerView = view.findViewById(R.id.keyword_view);
+      keysearchButton = view.findViewById(R.id.keysearchbutton);
+      keysearchButton.setOnClickListener(this);
+      searchResponseAdapter = new SearchResponseAdapter(this, keywordSearch);
       recyclerView.setAdapter(searchResponseAdapter);
-    }).execute(keysearchView.getText().toString());
+      keysearchView = view.findViewById(R.id.keysearchview);
+
+      return view;
 
   }
+
+    /**
+     * This method represents the onCLick view of articles searched by the use, a recycle view
+     * is implemented. Information displayed is then saved on the history fragemnt.
+     */
+
+    @Override
+    public void onClick(View v) {
+//get the text out edit text
+        new SearchTask().setSuccessListener(searchResponse -> {
+            Document[] documents = searchResponse.getResponse().getDocs();
+            searchResponseAdapter = new SearchResponseAdapter(KeywordFragment.this,
+                    Arrays.asList(documents));
+
+            for (Document document : documents) {
+                Search search = new Search();
+                search.setTitle(document.getHeadline().getMain());
+                search.setUrl(document.getWebUrl());
+                search.setDate(document.getPublicationDate());
+                new InsertSearchTask().execute(search);
+
+            }
+            recyclerView.setAdapter(searchResponseAdapter);
+        }).execute(keysearchView.getText().toString());
+
+    }
 
 
   @Override
@@ -80,15 +95,7 @@ public class KeywordFragment extends Fragment implements OnClickListener {
 
 }
 
-//    String [] values =
-//        {"Time at Residence","Under 6 months","6-12 months","1-2 years","2-4 years","4-8 years","8-15 years","Over 15 years",};
-//    Spinner spinner = v.findViewById(R.id.fragment_1);
-//    ArrayAdapter<String> adapter = new ArrayAdapter<>(this.getActivity(),
-//        android.R.layout.simple_spinner_item, values);
-//    adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-//    spinner.setAdapter(adapter);
-//
-//    return v;
+
 
 
 

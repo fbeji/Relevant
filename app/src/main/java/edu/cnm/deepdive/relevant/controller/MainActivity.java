@@ -15,10 +15,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+
 import edu.cnm.deepdive.relevant.R;
 
+
+/**
+ * Instances of this class represents the main activity. fragments are inflated upon click from
+ * the user from a menu selection.
+ *
+ * @author Faycel B. Beji &amp; Deep Dive Coding Java + Android Bootcamp cohort 6
+ * @version 1.0
+ */
+
 public class MainActivity extends AppCompatActivity
-    implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener {
 
   private ProgressBar loading;
 
@@ -33,14 +43,14 @@ public class MainActivity extends AppCompatActivity
     fab.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-            .setAction("Action", null).show();
+        Snackbar.make(view, " ", Snackbar.LENGTH_LONG)
+                .setAction(" ", null).show();
       }
     });
 
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-        this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
     drawer.addDrawerListener(toggle);
     toggle.syncState();
 
@@ -65,20 +75,7 @@ public class MainActivity extends AppCompatActivity
     return true;
   }
 
-//  @Override
-//  public boolean onOptionsItemSelected(MenuItem item) {
-//    // Handle action bar item clicks here. The action bar will
-//    // automatically handle clicks on the Home/Up button, so long
-//    // as you specify a parent activity in AndroidManifest.xml.
-//    int id = item.getItemId();
-//
-//    //noinspection SimplifiableIfStatement
-//
-//
-//    return super.onOptionsItemSelected(item);
-//  }
 
-  @SuppressWarnings("StatementWithEmptyBody")
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     // Handle navigation view item clicks here.
@@ -100,10 +97,16 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-    drawer.closeDrawer(GravityCompat.START);
+//    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//    drawer.closeDrawer(GravityCompat.START);
     return true;
   }
+
+
+  /**
+   * This method represents the navigation view. Navigates through the fragment and load the
+   * appropriate fragment bases on user selection.
+   */
 
   @Override
   public boolean onNavigationItemSelected(MenuItem item) {

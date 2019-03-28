@@ -2,6 +2,7 @@ package edu.cnm.deepdive.relevant.service;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 import edu.cnm.deepdive.relevant.BuildConfig;
 import edu.cnm.deepdive.relevant.R;
 import edu.cnm.deepdive.relevant.SearchApplication;
@@ -88,9 +89,8 @@ public interface SearchWebService {
       {
         int period = 1;
 
-        String searchString = strings[0];
 
-        try {
+          try {
           Response<MostPopular> response = InstanceHolder.INSTANCE.mostViewed(period,
               InstanceHolder.API_KEY).execute();
           if (!response.isSuccessful()) {
@@ -105,8 +105,8 @@ public interface SearchWebService {
 
   }
 
-  // TODO Add classes for MostSharedTask, MostEmailedTask
-  class MostSharedTask extends BaseFluentAsyncTask<String, Void, MostPopular, MostPopular> {
+
+    class MostSharedTask extends BaseFluentAsyncTask<String, Void, MostPopular, MostPopular> {
 
     @Override
     protected MostPopular perform(String... strings) throws TaskException {
@@ -139,9 +139,8 @@ public interface SearchWebService {
       {
         int period = 1;
 
-        String searchString = strings[0];
 
-        try {
+          try {
           Response<MostPopular> response = InstanceHolder.INSTANCE.mostEmailed(period,
               InstanceHolder.API_KEY).execute();
           if (!response.isSuccessful()) {
