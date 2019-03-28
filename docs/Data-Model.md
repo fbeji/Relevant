@@ -2,7 +2,7 @@
 
 ### Entity-Relationship Diagram
 
-[ERD](docs/My_App_ERD.pdf)
+[ERD](My_App_ERD.pdf)
 
 
 ### Schema Data Definition Language (DDL)
