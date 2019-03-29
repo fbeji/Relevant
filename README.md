@@ -108,9 +108,7 @@ relevant to their interest in one place will not only save them the time surfing
 
 ## Javadoc Page
 
-+ [Javadoc](index.html)
-
-+
++ [Javadoc](file:///C:/Users/fclbe/Desktop/bootcamp/projects/Relevant/docs/api/index.html)
 
 
 
