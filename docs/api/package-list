@@ -1,0 +1,8 @@
+edu.cnm.deepdive.relevant
+edu.cnm.deepdive.relevant.controller
+edu.cnm.deepdive.relevant.model
+edu.cnm.deepdive.relevant.model.dao
+edu.cnm.deepdive.relevant.model.entity
+edu.cnm.deepdive.relevant.model.pojo
+edu.cnm.deepdive.relevant.service
+edu.cnm.deepdive.relevant.view
