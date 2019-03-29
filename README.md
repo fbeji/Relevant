@@ -108,7 +108,7 @@ relevant to their interest in one place will not only save them the time surfing
 
 ## Javadoc Page
 
-+ [Javadoc](docs/api/index.html)
++ [Javadoc](api/index.html)
 
 +
 
