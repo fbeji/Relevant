@@ -101,14 +101,14 @@ relevant to their interest in one place will not only save them the time surfing
 + [DDL](docs/ddl.md)
 
 + [User Story 1,2](docs/User_Story.md)
-+ [ Licenses/Copyright] (docs/Licenses_Copyright.md)
++ [ Licenses/Copyright] (Licenses_Copyright.md)
 
 + [Data Model ](Data-Model.md)
 
 
 ## Javadoc Page
 
-+ [Javadoc](api/index.html)
++ [Javadoc](index.html)
 
 +
 
