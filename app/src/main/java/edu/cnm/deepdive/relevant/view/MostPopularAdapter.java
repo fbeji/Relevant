@@ -15,7 +15,10 @@ import edu.cnm.deepdive.relevant.controller.TwitterFragment;
 import edu.cnm.deepdive.relevant.model.entity.MostPopular.Result;
 import java.util.List;
 
-
+/**
+ * Supplies {@link View} instances&mdash;each presenting an {@link SearchResponseAdapter} instance,
+ * to a {@link RecyclerView}.
+ */
 public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.Holder> {
 
 
@@ -57,7 +60,10 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
   @NonNull
   @Override
 
-//TODO inflate layout for one single item
+/**
+ * inflate layout for one single item
+ *
+ */
 
   public MostPopularAdapter.Holder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
@@ -101,10 +107,13 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
       webUrl1 = view.findViewById(R.id.weburl);
     }
 
+    /**
+     * use view methods to set the contents of view to the contents from document
+     */
 
     private void bind(Result result) {
       this.result = result;
-      //TODO use view methods to set the contents of view to the ocntents from document
+
       title1.setText(result.getTitle());
       leadparagraph.setText(result.getLeadParagraph());
       webUrl1.setText(result.getWebUrl());

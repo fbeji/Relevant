@@ -2,7 +2,6 @@ package edu.cnm.deepdive.relevant.service;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import edu.cnm.deepdive.relevant.BuildConfig;
 import edu.cnm.deepdive.relevant.R;
 import edu.cnm.deepdive.relevant.SearchApplication;
@@ -20,6 +19,10 @@ import retrofit2.http.Query;
 
 public interface SearchWebService {
 
+  /**
+   * Search criteria using different APIs gets data from json file and sets search criteria to query
+   * respective data
+   */
 
   @GET("svc/search/v2/articlesearch.json")
   Call<SearchResponse> search(@Query("api-key") String apiKey, @Query("q") String search);
@@ -57,7 +60,7 @@ public interface SearchWebService {
   }
 
   /**
-   * Encapsulates the request lifecycle for the NASA APOD web service as a {@link
+   * Encapsulates the request lifecycle for search web service as a {@link
    * BaseFluentAsyncTask} subclass.
    */
   class SearchTask extends BaseFluentAsyncTask<String, Void, SearchResponse, SearchResponse> {

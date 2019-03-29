@@ -6,7 +6,10 @@ import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 
 
-
+/**
+ * Returns the foreign key value referencing the primary key of the {@link SearchEntry} entity
+ * table.
+ */
 @Entity(
     foreignKeys = @ForeignKey(
         entity = Search.class,
@@ -14,6 +17,12 @@ import android.arch.persistence.room.PrimaryKey;
         onDelete = ForeignKey.CASCADE
     )
 )
+
+/**
+ * Returns the search entry referencing the primary key of the {@link SeachEntry} entity table.
+ *
+ * @return primary key value, referencing  {@link SearchEntry}.
+ */
 public class SearchEntry {
 
   @ColumnInfo(name = "search_entry_id")

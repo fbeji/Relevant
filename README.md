@@ -16,7 +16,7 @@ the most shared through emails, or social media( facebook and twitter)
 The current state of Relevant is running well, the user is able to switch between fragments,
 as well as choose between different buttons to pick a search method, or input a keyword to search
 for articles based on their typed in keyword. A history option can be selected to view the history of
-articles searched previously by the user
+articles searched previously by the user. The user can also flip the screen for better resolution.
 
 ### Unimplemented/Incomplete Elements of Relevant
 
@@ -108,7 +108,7 @@ relevant to their interest in one place will not only save them the time surfing
 
 ## Javadoc Page
 
-+ [Javadoc]()
++ [Javadoc](docs/api/index.html)
 
 +
 

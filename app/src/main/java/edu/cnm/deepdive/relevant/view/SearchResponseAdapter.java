@@ -12,6 +12,11 @@ import edu.cnm.deepdive.relevant.controller.KeywordFragment;
 import edu.cnm.deepdive.relevant.model.entity.SearchResponse.Document;
 import java.util.List;
 
+/**
+ * Supplies {@link View} instances&mdash;each presenting an {@link SearchResponseAdapter} instance,
+ * to a {@link RecyclerView}.
+ */
+
 public class SearchResponseAdapter extends RecyclerView.Adapter<SearchResponseAdapter.Holder> {
 
   private Context context;
@@ -55,21 +60,28 @@ public class SearchResponseAdapter extends RecyclerView.Adapter<SearchResponseAd
     private TextView snippet;
     private TextView webUrl;
 
+    /**
+     * using references to views
+     */
 
     private Holder(@NonNull View itemView) {
       super(itemView);
       view = itemView;
       view.setOnClickListener(keywordFragment);
       // view.setOnCreateContextMenuListener(this);
-      // TODO Get references to views (probably TextView instances) within view, and assign to fields.
+
       headline = view.findViewById(R.id.headline);
       snippet = view.findViewById(R.id.snippet);
       webUrl = view.findViewById(R.id.weburl);
     }
 
+    /**
+     * using view methods to set the contents of view to the ocntents from document
+     * @param document
+     */
     private void bind(Document document) {
       this.document = document;
-      //TODO use view methods to set the contents of view to the ocntents from document
+
       headline.setText(document.getHeadline().getMain());
       snippet.setText(document.getSnippet());
       webUrl.setText(document.getWebUrl());

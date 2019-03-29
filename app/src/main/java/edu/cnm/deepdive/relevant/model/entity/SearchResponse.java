@@ -1,3 +1,18 @@
+/*
+ *  Copyright 2019 Faycel B. Beji & Deep Dive Coding
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
 package edu.cnm.deepdive.relevant.model.entity;
 
 import android.support.annotation.NonNull;
@@ -22,6 +37,10 @@ public class SearchResponse extends ViewHolder {
     super(itemView);
   }
 
+  /**
+   * Returns the status of this instance.
+   */
+
   public String getStatus() {
     return status;
   }
@@ -30,6 +49,9 @@ public class SearchResponse extends ViewHolder {
     this.status = status;
   }
 
+  /**
+   * Returns the copyright of this instance.
+   */
   public String getCopyright() {
     return copyright;
   }
@@ -109,6 +131,12 @@ public class SearchResponse extends ViewHolder {
 
   }
 
+  /**
+   * Encapsulates the attributes of Document . Room and GSon annotations are used to specify entity
+   * &amp; attribute mapping for database persistence, and property mapping for JSON
+   * serialization/deserialization mapping.
+   */
+
   public static class Document {
 
     @Expose
@@ -171,6 +199,11 @@ public class SearchResponse extends ViewHolder {
 
   }
 
+  /**
+   * Encapsulates the attributes of Headline. Room and GSo annotations are used to specify entity
+   * &amp; attribute mapping for database persistence, and property mapping for JSON
+   * serialization/deserialization mapping.
+   */
   public static class Headline {
 
     @Expose

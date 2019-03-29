@@ -3,7 +3,6 @@ package edu.cnm.deepdive.relevant.model.pojo;
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Relation;
 import edu.cnm.deepdive.relevant.model.entity.Search;
-import edu.cnm.deepdive.relevant.model.entity.User;
 import java.util.List;
 
 public class SearchWithUsers {
@@ -22,13 +21,7 @@ public class SearchWithUsers {
     this.search = search;
   }
 
-  public List<Search> getUsers() {
-    return users;
-  }
-
-  public void setAccesses(List<User> accesses) {
-    this.users = users;
-  }
 }
+
 
 

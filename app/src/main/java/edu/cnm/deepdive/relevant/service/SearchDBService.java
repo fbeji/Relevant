@@ -14,6 +14,9 @@ public final class SearchDBService {
   private SearchDBService() {
   }
 
+  /**
+   * inserts instance of search task in the database.
+   */
 
   public static class InsertSearchTask
       extends BaseFluentAsyncTask<Search, Void, List<Long>, List<Long>> {
@@ -34,7 +37,9 @@ public final class SearchDBService {
 
   }
 
-
+  /**
+   * selects search tasks instances.
+   */
   public static class SelectSearchTask extends BaseFluentAsyncTask<Date, Void, User, Search> {
 
     @Override

@@ -7,9 +7,7 @@ import android.arch.persistence.room.TypeConverter;
 import android.arch.persistence.room.TypeConverters;
 import edu.cnm.deepdive.relevant.SearchApplication;
 import edu.cnm.deepdive.relevant.model.SearchDB.Converters;
-import edu.cnm.deepdive.relevant.model.dao.CategoryDao;
 import edu.cnm.deepdive.relevant.model.dao.SearchDao;
-import edu.cnm.deepdive.relevant.model.dao.SearchEntryDao;
 import edu.cnm.deepdive.relevant.model.dao.UserDao;
 import edu.cnm.deepdive.relevant.model.entity.Category;
 import edu.cnm.deepdive.relevant.model.entity.Search;
@@ -17,6 +15,11 @@ import edu.cnm.deepdive.relevant.model.entity.SearchEntry;
 import edu.cnm.deepdive.relevant.model.entity.User;
 import java.util.Date;
 
+/**
+ * Defines the local database as a collection of its entities and converters, with the singleton
+ * pattern implemented for app-wide use of a single connection, and declares methods to retrieve
+ * data access objects (DAOs) for the database entities.
+ */
 
 @Database(
     entities = {User.class, Search.class, Category.class, SearchEntry.class},
@@ -29,7 +32,6 @@ public abstract class SearchDB extends RoomDatabase {
   private static final String DB_NAME = "search_db";
 
 
-
   public synchronized static SearchDB getInstance() {
     return InstanceHolder.INSTANCE;
   }
@@ -39,11 +41,11 @@ public abstract class SearchDB extends RoomDatabase {
 
   public abstract SearchDao getSearchDao();
 
-  public abstract SearchEntryDao getSearchEntryDao();
-
-  public abstract CategoryDao getCategoryDao();
-
-
+  /**
+   * Returns an instance of a Room-generated implementation of {@link SearchDao}.
+   *
+   * @return data access object for CRUD operations involving {@link Search} instances.
+   */
   private static class InstanceHolder {
 
     private static final SearchDB INSTANCE = Room.databaseBuilder(
